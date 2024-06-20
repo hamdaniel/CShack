@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/breathing_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +41,7 @@ class _MenuState extends State<Menu> {
   final List<Widget> _screens = [
     SliderScreen(),
     TextBoxScreen(),
+    AnimatedCircleScreen()
   ];
 
   @override
