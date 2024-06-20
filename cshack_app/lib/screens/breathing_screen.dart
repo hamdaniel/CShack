@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-class AnimatedCircleScreen extends StatefulWidget {
-  const AnimatedCircleScreen({Key? key}) : super(key: key);
+class BreathingScreen extends StatefulWidget {
+  const BreathingScreen({Key? key}) : super(key: key);
 
   @override
-  _AnimatedCircleScreenState createState() => _AnimatedCircleScreenState();
+  _BreathingScreenState createState() => _BreathingScreenState();
 }
 
-class _AnimatedCircleScreenState extends State<AnimatedCircleScreen> {
+class _BreathingScreenState extends State<BreathingScreen> {
   double _outerCircleSize = 400.0;
   double _innerCircleSize = 200.0;
   bool _isAnimating = false;
@@ -267,10 +267,4 @@ class _AnimatedCircleScreenState extends State<AnimatedCircleScreen> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: AnimatedCircleScreen(),
-  ));
 }

@@ -61,6 +61,8 @@ flutter:
     - assets/rabbit.png
     - assets/circle_icon.png
     - assets/8.png
+    - assets/play.png
+    - assets/target.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
