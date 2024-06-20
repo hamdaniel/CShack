@@ -1,3 +1,6 @@
+import 'package:cshack_app/screens/avatar_selection_screen.dart';
+import 'package:cshack_app/screens/daily_planning_screen.dart';
+import 'package:cshack_app/screens/statistics_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
