@@ -1,15 +1,10 @@
-import 'package:cshack_app/screens/avatar_selection_screen.dart';
-import 'package:cshack_app/screens/game_screen.dart';
-import 'package:cshack_app/screens/statistics_screen.dart';
 import 'package:flutter/material.dart';
 import 'breathing_screen.dart';
 import 'plan_screen.dart';
 import 'profile_screen.dart';
-import 'stats_screen.dart';
 import 'display_challenge_screen.dart';
-import 'challenge_screen.dart';
-import 'help_screen.dart';
-import 'video_screen.dart';
+import 'avatar_selection_screen.dart';
+import 'statistics_screen.dart';
 import '../route_util.dart'; // Import the route utility file
 
 class HomeScreen extends StatelessWidget {
@@ -69,9 +64,9 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Center image with text
+          // Center image with text and welcome message
           Positioned(
-            top: 45.0, // Adjust positioning as needed
+            top: 200.0, // Adjust positioning as needed
             left: 0,
             right: 0,
             child: Column(
@@ -85,6 +80,15 @@ class HomeScreen extends StatelessWidget {
                 const Text(
                   'You',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8.0), // Additional spacing
+                const Text(
+                  'Welcome',
+                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold, color: Colors.orange),
+                ),
+                const Text(
+                  'Back!',
+                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold, color: Colors.orange),
                 ),
               ],
             ),
@@ -221,7 +225,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(createSlideRoute( StatisticsScreen()));
+                    Navigator.of(context).push(createSlideRoute(StatisticsScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 0, 174, 180), // Background color
