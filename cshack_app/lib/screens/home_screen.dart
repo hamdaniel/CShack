@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 8.0), // Spacing between image and text
                 const Text(
-                  'carrots',
+                  '951',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 8.0), // Spacing between image and text
                 const Text(
-                  'streak',
+                  '7',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
               ],

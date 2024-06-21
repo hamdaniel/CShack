@@ -38,7 +38,7 @@ class StatisticsScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        _buildStatCard('Streak Length', '5 days'),
+                        _buildStatCard('Streak Length', '7 days'),
                         _buildStatCard('Total XP', '500 XP'),
                       ],
                     ),
