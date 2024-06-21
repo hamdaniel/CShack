@@ -1,4 +1,4 @@
-import 'package:cshack_app/screens/home_screen.dart';
+import 'package:cshack_app/screens/success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cshack_app/route_util.dart';
@@ -113,7 +113,7 @@ class _GameScreenState extends State<GameScreen> {
             ElevatedButton.icon(
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
-                        createSlideRoute(const HomeScreen()),
+                        createSlideRoute(const WellDoneScreen()),
                         (route) => false,
                       );
                     },
