@@ -8,6 +8,7 @@ import 'stats_screen.dart';
 import 'display_challenge_screen.dart';
 import 'challenge_screen.dart';
 import 'help_screen.dart';
+import 'video_screen.dart';
 import '../route_util.dart'; // Import the route utility file
 
 class HomeScreen extends StatelessWidget {
@@ -98,7 +99,7 @@ class HomeScreen extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(createFadeRoute(const BreathingScreen()));
+                    Navigator.of(context).push(createFadeRoute(const VideoScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 252, 141, 51), // Background color
@@ -114,8 +115,8 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/play.png', // Replace with your image path
-                        height: 20.0,
-                        width: 20.0,
+                        height: 35.0,
+                        width: 35.0,
                       ),
                       const SizedBox(width: 8.0), // Spacing between image and text
                       const Text(
@@ -144,8 +145,8 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/target.png', // Replace with your image path
-                        height: 30.0,
-                        width: 30.0,
+                        height: 35.0,
+                        width: 35.0,
                       ),
                       const SizedBox(width: 8.0), // Spacing between image and text
                       const Text(
