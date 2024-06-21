@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cshack_app/route_util.dart';
+import 'screen2.dart';
 import 'dart:async';
 
 class BreathingScreen extends StatefulWidget {
@@ -13,6 +15,7 @@ class _BreathingScreenState extends State<BreathingScreen> {
   double _innerCircleSize = 200.0;
   bool _isAnimating = false;
   bool _isPaused = false;
+  bool _showNextButton = false; // Variable to show/hide the "Next" button
 
   // Parameters for animation control
   double _enlargeDuration = 2.5; // Duration to enlarge inner circle to outer circle size
@@ -114,6 +117,7 @@ class _BreathingScreenState extends State<BreathingScreen> {
             setState(() {
               _isAnimating = false;
               _animationCount = 0; // Reset the counter
+              _showNextButton = true; // Show the "Next" button
             });
           }
         }
@@ -139,6 +143,7 @@ class _BreathingScreenState extends State<BreathingScreen> {
   @override
   Widget build(BuildContext context) {
     int sec = _countdownSeconds + 1; // Define sec variable here
+
 
     return Scaffold(
       appBar: AppBar(
@@ -171,13 +176,15 @@ class _BreathingScreenState extends State<BreathingScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               AnimatedOpacity(
-                duration:
-                    Duration(milliseconds: 200), // Adjust opacity transition duration as needed
+                duration: Duration(milliseconds: 200), // Adjust opacity transition duration as needed
                 opacity: _showCountdown ? 1.0 : 0.0,
-                child: Text(
-                  '$sec', // Display sec instead of _countdownSeconds
-                  style: TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.bold), // Adjust fontSize here
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 50.0),
+                  child: Text(
+                    '$sec', // Display sec instead of _countdownSeconds
+                    style: TextStyle(
+                        fontSize: 80, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 127, 80) ),// Adjust fontSize here
+                  ),
                 ),
               ),
               Container(
@@ -201,9 +208,7 @@ class _BreathingScreenState extends State<BreathingScreen> {
                       ),
                       _isPaused
                           ? AnimatedContainer(
-                              duration: Duration(
-                                  milliseconds:
-                                      (_beatingDuration * 1000).toInt()),
+                              duration: Duration(milliseconds: (_beatingDuration * 1000).toInt()),
                               width: _innerCircleSize,
                               height: _innerCircleSize,
                               decoration: BoxDecoration(
@@ -234,33 +239,61 @@ class _BreathingScreenState extends State<BreathingScreen> {
               ),
               SizedBox(height: 10.0),
               Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child: GestureDetector(
-                  onTap: () {
-                    if (!_isAnimating) {
-                      _animationCount = 0;
-                      _startCountdown(); // Start the countdown before animation
-                    }
-                  },
-                  child: Container(
-                    width: 60.0,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                          color: Color.fromARGB(255, 0, 173, 180), width: 2.0),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.play_arrow,
-                        size: 40.0,
-                        color: Color.fromARGB(
-                            255, 255, 127, 80), // Play button icon color
+                padding: const EdgeInsets.only(bottom: 30.0),
+                child: Visibility(
+                  visible: !_showNextButton,
+                  child: GestureDetector(
+                    onTap: () {
+                      if (!_isAnimating) {
+                        _animationCount = 0;
+                        _startCountdown(); // Start the countdown before animation
+                        _showNextButton = false; // Hide the "Next" button when animation starts
+                      }
+                    },
+                    child: Container(
+                      width: 60.0,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                            color: Color.fromARGB(255, 0, 173, 180), width: 2.0),
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.play_arrow,
+                          size: 40.0,
+                          color: Color.fromARGB(
+                              255, 255, 127, 80), // Play button icon color
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
+              if (_showNextButton)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                        createSlideRoute(const Screen2()),
+                        (route) => false,
+                      );
+                    },
+                    icon: Icon(Icons.arrow_forward, color: Color.fromARGB(255, 225, 225, 225),),
+                    label: Text(
+                      'Next',
+                      style: TextStyle(fontSize: 20.0, color: Color.fromARGB(225, 255, 225, 225)),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        fixedSize: Size(140, 60), // Consistent size
+                        shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: Color.fromARGB(255, 225, 123, 80), // Background color
+                    ),
+                  ),
+                ),
             ],
           ),
         ],
