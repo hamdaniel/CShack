@@ -119,7 +119,7 @@ class _PlanScreenState extends State<PlanScreen> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    createSlideRoute(ChallengeScreen()),
+                    createSlideRoute(DailyPlanningScreen()),
                   );
                 },
                 style: ButtonStyle(
