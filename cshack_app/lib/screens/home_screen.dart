@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(createFadeRoute(const VideoScreen()));
+                    Navigator.of(context).push(createFadeRoute(const BreathingScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 252, 141, 51), // Background color

@@ -26,19 +26,20 @@ class WellDoneScreen extends StatelessWidget {
                 Text(
                   'Well done!',
                   style: TextStyle(
-                    fontSize: 48.0,
+                    fontSize: 64.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green,
+                    color: Colors.orange,
                   ),
                 ),
                 SizedBox(height: 16.0), // Spacing between texts
                 
                 Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     '+50',
                     style: TextStyle(
-                      fontSize: 32.0,
+                      fontSize: 40.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.orange,
                     ),
@@ -73,6 +74,8 @@ class WellDoneScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),
+                  foregroundColor: Color.fromARGB(255, 255, 255, 255), // Background color
+                  backgroundColor: Color.fromARGB(255, 225, 123, 80), // Background color
                 ),
                 child: Text(
                   'Homepage',

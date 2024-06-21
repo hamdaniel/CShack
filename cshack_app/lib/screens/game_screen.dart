@@ -110,14 +110,7 @@ class _GameScreenState extends State<GameScreen> {
           title: Text("Game Over"),
           content: Text("Your score: $score\nHigh score: $highScore"),
           actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                      Navigator.of(context).pushAndRemoveUntil(
-                        createSlideRoute(const WellDoneScreen()),
-                        (route) => false,
-                      );
-                    },
-               child: ElevatedButton.icon(
+            ElevatedButton.icon(
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
                         createSlideRoute(const WellDoneScreen()),
@@ -137,7 +130,6 @@ class _GameScreenState extends State<GameScreen> {
                         backgroundColor: Color.fromARGB(255, 225, 123, 80), // Background color
                     ),
                   ),
-            ),
           ],
         );
       },
