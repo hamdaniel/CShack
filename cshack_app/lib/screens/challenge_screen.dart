@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-
+// Define Challenge class as before...
 class Challenge {
   String title;
   Duration duration;
@@ -97,39 +97,39 @@ class _ChallengeScreenState extends State<ChallengeScreen> {
   }
 
   void _showDeleteDialog(int index) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text("Delete Challenge"),
-        content: Text("Are you sure you want to delete this challenge?"),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              "Cancel",
-              style: TextStyle(color: Colors.black),
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Delete Challenge"),
+          content: Text("Are you sure you want to delete this challenge?"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                "Cancel",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
-          ),
-          TextButton(
-            onPressed: () {
-              setState(() {
-                challenges.removeAt(index);
-              });
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              "Delete",
-              style: TextStyle(color: Colors.red),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  challenges.removeAt(index);
+                });
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                "Delete",
+                style: TextStyle(color: Colors.red),
+              ),
             ),
-          ),
-        ],
-      );
-    },
-  );
-}
+          ],
+        );
+      },
+    );
+  }
 
   String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
@@ -292,6 +292,17 @@ class _CreateChallengeScreenState extends State<CreateChallengeScreen> {
                       fixedSize: Size(56, 56),
                     ),
                   ),
+                ),
+              ),
+              SizedBox(height: 16),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    Navigator.pop(context); // Navigate back to previous screen
+                  },
+                  child: Icon(Icons.home),
+                  backgroundColor: Colors.blue,
                 ),
               ),
             ],

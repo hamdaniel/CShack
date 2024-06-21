@@ -1,4 +1,6 @@
+import 'package:cshack_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:cshack_app/route_util.dart';
 
 class DailyPlanningScreen extends StatefulWidget {
   const DailyPlanningScreen({Key? key}) : super(key: key);
@@ -17,13 +19,6 @@ class _DailyPlanningScreenState extends State<DailyPlanningScreen> {
     {'task': 'Play Chess', 'sliderValue': 1.0},
     {'task': 'Play Basketball', 'sliderValue': 1.0},
   ];
-
-  void _savePlanning() {
-    // Implement the save functionality here
-    // For now, just print the values to the console
-    print('Exercises: $_exercises');
-    print('Games: $_games');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +58,12 @@ class _DailyPlanningScreenState extends State<DailyPlanningScreen> {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: _savePlanning,
+                onPressed: () {
+                      Navigator.of(context).pushAndRemoveUntil(
+                        createSlideRoute(const HomeScreen()),
+                        (route) => false,
+                      );
+                    },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
                   padding: const EdgeInsets.symmetric(vertical: 16),
