@@ -192,7 +192,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(createSlideRoute(const PlanScreen()));
+                    Navigator.of(context).push(createSlideRoute(PlanScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 0, 174, 180), // Background color
