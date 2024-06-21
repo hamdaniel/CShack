@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cshack_app/route_util.dart';
-import 'screen2.dart';
+import 'game_screen.dart';
 import 'dart:async';
 
 class BreathingScreen extends StatefulWidget {
@@ -144,6 +144,7 @@ class _BreathingScreenState extends State<BreathingScreen> {
   Widget build(BuildContext context) {
     int sec = _countdownSeconds + 1; // Define sec variable here
 
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -275,7 +276,7 @@ class _BreathingScreenState extends State<BreathingScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
-                        createSlideRoute(const Screen2()),
+                        createSlideRoute(const GameScreen()),
                         (route) => false,
                       );
                     },

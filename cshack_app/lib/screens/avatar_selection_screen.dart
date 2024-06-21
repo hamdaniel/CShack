@@ -19,18 +19,6 @@ class _AvatarSelectionScreenState extends State<AvatarSelectionScreen> {
     'assets/avatar6.png',
   ];
 
-  void _selectAvatar(int index) {
-    setState(() {
-      _selectedAvatarIndex = index;
-    });
-
-    // Get the selected avatar path
-    String selectedAvatarPath = _avatarPaths[index];
-
-    // Return the selected avatar path to the previous screen (HomeScreen)
-    Navigator.pop(context, selectedAvatarPath);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +29,7 @@ class _AvatarSelectionScreenState extends State<AvatarSelectionScreen> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/8.png'),
-            fit: BoxFit.cover,
+            fit: BoxFit.cover, // Or your preferred BoxFit
           ),
         ),
         child: Padding(
@@ -56,7 +44,9 @@ class _AvatarSelectionScreenState extends State<AvatarSelectionScreen> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  _selectAvatar(index);
+                  setState(() {
+                    _selectedAvatarIndex = index;
+                  });
                 },
                 child: Container(
                   decoration: BoxDecoration(

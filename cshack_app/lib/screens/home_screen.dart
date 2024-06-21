@@ -1,4 +1,5 @@
 import 'package:cshack_app/screens/avatar_selection_screen.dart';
+import 'package:cshack_app/screens/game_screen.dart';
 import 'package:cshack_app/screens/statistics_screen.dart';
 import 'package:flutter/material.dart';
 import 'breathing_screen.dart';
