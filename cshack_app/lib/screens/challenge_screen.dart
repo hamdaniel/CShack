@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+
 class Challenge {
   String title;
   Duration duration;
