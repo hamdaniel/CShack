@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  'assets/rabbit.png', // Replace with your image path
+                  'assets/avatar1.png', // Replace with your image path
                   height: 130.0,
                   width: 130.0,
                 ),

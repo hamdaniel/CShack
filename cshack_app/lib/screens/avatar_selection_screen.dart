@@ -8,7 +8,7 @@ class AvatarSelectionScreen extends StatefulWidget {
 }
 
 class _AvatarSelectionScreenState extends State<AvatarSelectionScreen> {
-  int _selectedAvatarIndex = -1;
+  int _selectedAvatarIndex = 0;
 
   final List<String> _avatarPaths = [
     'assets/avatar1.png',
@@ -19,41 +19,59 @@ class _AvatarSelectionScreenState extends State<AvatarSelectionScreen> {
     'assets/avatar6.png',
   ];
 
+  void _selectAvatar(int index) {
+    setState(() {
+      _selectedAvatarIndex = index;
+    });
+
+    // Get the selected avatar path
+    String selectedAvatarPath = _avatarPaths[index];
+
+    // Return the selected avatar path to the previous screen (HomeScreen)
+    Navigator.pop(context, selectedAvatarPath);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Select an Avatar'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 16.0,
-            mainAxisSpacing: 16.0,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/8.png'),
+            fit: BoxFit.cover,
           ),
-          itemCount: _avatarPaths.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  _selectedAvatarIndex = index;
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: _selectedAvatarIndex == index
-                        ? const Color.fromARGB(255, 15, 178, 21)
-                        : Colors.transparent,
-                    width: 4.0,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16.0,
+              mainAxisSpacing: 16.0,
+            ),
+            itemCount: _avatarPaths.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  _selectAvatar(index);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: _selectedAvatarIndex == index
+                          ? const Color.fromARGB(255, 15, 178, 21)
+                          : Colors.transparent,
+                      width: 4.0,
+                    ),
                   ),
+                  child: Image.asset(_avatarPaths[index]),
                 ),
-                child: Image.asset(_avatarPaths[index]),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
