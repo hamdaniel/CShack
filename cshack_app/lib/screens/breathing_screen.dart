@@ -144,6 +144,7 @@ class _BreathingScreenState extends State<BreathingScreen> {
   Widget build(BuildContext context) {
     int sec = _countdownSeconds + 1; // Define sec variable here
 
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
