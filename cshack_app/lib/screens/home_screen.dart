@@ -1,3 +1,5 @@
+import 'package:cshack_app/screens/avatar_selection_screen.dart';
+import 'package:cshack_app/screens/statistics_screen.dart';
 import 'package:flutter/material.dart';
 import 'breathing_screen.dart';
 import 'plan_screen.dart';
@@ -71,7 +73,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  'assets/rabbit.png', // Replace with your image path
+                  'assets/avatar1.png', // Replace with your image path
                   height: 130.0,
                   width: 130.0,
                 ),
@@ -165,7 +167,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(createSlideRoute(const ProfileScreen()));
+                    Navigator.of(context).push(createSlideRoute(const AvatarSelectionScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 105, 202, 205), // Background color
@@ -215,7 +217,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(createSlideRoute(const StatsScreen()));
+                    Navigator.of(context).push(createSlideRoute( StatisticsScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 0, 174, 180), // Background color
