@@ -5,6 +5,8 @@ import 'breathing_screen.dart';
 import 'plan_screen.dart';
 import 'profile_screen.dart';
 import 'stats_screen.dart';
+import 'display_challenge_screen.dart';
+import 'challenge_screen.dart';
 import 'help_screen.dart';
 import '../route_util.dart'; // Import the route utility file
 
@@ -126,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 20.0), // Fixed spacing between buttons
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(createFadeRoute(const HelpScreen()));
+                    Navigator.of(context).push(createFadeRoute(const DisplayChallengesScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 252, 141, 51), // Background color

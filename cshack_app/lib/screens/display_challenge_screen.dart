@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+
+
+class DisplayChallengesScreen extends StatefulWidget {
+  const DisplayChallengesScreen({Key? key}) : super(key: key);
+
+  @override
+  _DisplayChallengesScreenState createState() => _DisplayChallengesScreenState();
+}
+
+
 class Challenge {
   String title;
   Duration duration;
@@ -15,10 +25,6 @@ class Challenge {
   });
 }
 
-class DisplayChallengesScreen extends StatefulWidget {
-  @override
-  _DisplayChallengesScreenState createState() => _DisplayChallengesScreenState();
-}
 
 class _DisplayChallengesScreenState extends State<DisplayChallengesScreen> {
   late List<Challenge> challenges;
@@ -141,7 +147,11 @@ class _DisplayChallengesScreenState extends State<DisplayChallengesScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.star, color: Colors.yellow),
+                        Image.asset(
+                        'assets/carrot.png', // Replace with your image path
+                        height: 35.0,
+                        width: 35.0,
+                        ),
                         SizedBox(width: 5),
                         Text(challenge.reward.toString(), style: TextStyle(fontSize: 16, color: Colors.black)),
                       ],
