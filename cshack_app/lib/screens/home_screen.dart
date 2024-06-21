@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 8.0), // Spacing between image and text
                 const Text(
-                  'carrots',
+                  '951',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 8.0), // Spacing between image and text
                 const Text(
-                  'streak',
+                  '7',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -120,8 +120,8 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/play.png', // Replace with your image path
-                        height: 20.0,
-                        width: 20.0,
+                        height: 35.0,
+                        width: 35.0,
                       ),
                       const SizedBox(width: 8.0), // Spacing between image and text
                       const Text(
@@ -150,8 +150,8 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Image.asset(
                         'assets/target.png', // Replace with your image path
-                        height: 30.0,
-                        width: 30.0,
+                        height: 35.0,
+                        width: 35.0,
                       ),
                       const SizedBox(width: 8.0), // Spacing between image and text
                       const Text(
