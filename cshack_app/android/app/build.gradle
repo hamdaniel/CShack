@@ -1,3 +1,15 @@
+buildscript {
+    ext.kotlin_version = '1.5.20' // Adjust version as necessary
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        // Kotlin plugin for Gradle
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 plugins {
     id "com.android.application"
     id "kotlin-android"
@@ -52,6 +64,8 @@ android {
         }
     }
 }
+
+
 
 flutter {
     source = "../.."

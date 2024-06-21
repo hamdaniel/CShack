@@ -1,6 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'screens/breathing_screen.dart';
-
+import 'screens/game_screen.dart';
+import 'screens/challenge_screen.dart';
+import 'screens/display_challenge_screen.dart';
+//import 'screens/story_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -10,7 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
     );
   }
@@ -41,14 +45,17 @@ class _MenuState extends State<Menu> {
   final List<Widget> _screens = [
     SliderScreen(),
     TextBoxScreen(),
-    AnimatedCircleScreen()
+    AnimatedCircleScreen(),
+    GameScreen(),
+    ChallengeScreen(),
+    DisplayChallengesScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 20),
+        const SizedBox(height: 25),
         ElevatedButton(
           onPressed: () {
             setState(() {
@@ -57,7 +64,7 @@ class _MenuState extends State<Menu> {
           },
           child: const Text('Switch Screen'),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 25),
         Expanded(child: _screens[_selectedIndex]),
       ],
     );
