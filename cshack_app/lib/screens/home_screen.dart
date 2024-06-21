@@ -14,12 +14,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background image or color could be added here if desired
           // Background image
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/8.png'), // Replace with your image asset
+                image: AssetImage('assets/background.jpg'), // Replace with your image asset
                 fit: BoxFit.cover, // Cover the entire screen
               ),
             ),
@@ -44,7 +43,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Top right text ("streak")
+          // Top right text ("streak") with image
           Positioned(
             top: 32.0, // Adjust positioning as needed
             right: 16.0,
@@ -64,7 +63,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // bunny
+          // Center image with text
           Positioned(
             top: 45.0, // Adjust positioning as needed
             left: 0,
@@ -76,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                   height: 130.0,
                   width: 130.0,
                 ),
-                const SizedBox(width: 8.0), // Spacing between image and text
+                const SizedBox(height: 8.0), // Spacing between image and text
                 const Text(
                   'You',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
@@ -98,54 +97,58 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(createFadeRoute(const BreathingScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 252, 141, 51), // Background color
-                    foregroundColor: Color.fromARGB(255, 255, 255, 255), // Text color
+                    backgroundColor: const Color.fromARGB(255, 252, 141, 51), // Background color
+                    foregroundColor: const Color.fromARGB(255, 255, 255, 255), // Text color
                     padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20.0), // Padding
+                    minimumSize: const Size(200, 60), // Minimum size of the button
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0), // Rounded corners
                     ),
                   ),
                   child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/play.png', // Replace with your image path
-                      height: 20.0,
-                      width: 20.0,
-                    ),
-                    const SizedBox(width: 8.0), // Spacing between image and text
-                    const Text(
-                      'Start Daily Task!',
-                      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        'assets/play.png', // Replace with your image path
+                        height: 20.0,
+                        width: 20.0,
+                      ),
+                      const SizedBox(width: 8.0), // Spacing between image and text
+                      const Text(
+                        'Start Daily Task!',
+                        style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                 ),
-                
+                const SizedBox(height: 20.0), // Fixed spacing between buttons
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(createFadeRoute(const HelpScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 252, 141, 51), // Background color
-                    foregroundColor: Color.fromARGB(255, 255, 255, 255), // Text color
+                    backgroundColor: const Color.fromARGB(255, 252, 141, 51), // Background color
+                    foregroundColor: const Color.fromARGB(255, 255, 255, 255), // Text color
                     padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20.0), // Padding
+                    minimumSize: const Size(200, 60), // Minimum size of the button
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0), // Rounded corners
                     ),
                   ),
                   child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/target.png', // Replace with your image path
-                      height: 20.0,
-                      width: 20.0,
-                    ),
-                    const SizedBox(width: 8.0), // Spacing between image and text
-                    const Text(
-                      'My Challenges',
-                      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        'assets/target.png', // Replace with your image path
+                        height: 30.0,
+                        width: 30.0,
+                      ),
+                      const SizedBox(width: 8.0), // Spacing between image and text
+                      const Text(
+                        'My Challenges',
+                        style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -165,8 +168,8 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(createSlideRoute(const ProfileScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 105, 202, 205), // Background color
-                    foregroundColor: Color.fromARGB(255, 224, 118, 31), // Text color
+                    backgroundColor: const Color.fromARGB(255, 105, 202, 205), // Background color
+                    foregroundColor: const Color.fromARGB(255, 224, 118, 31), // Text color
                     padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 36.0), // Padding
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0), // Rounded corners
@@ -190,8 +193,8 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(createSlideRoute(const PlanScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 0, 174, 180), // Background color
-                    foregroundColor: Color.fromARGB(255, 252, 141, 51), // Text color
+                    backgroundColor: const Color.fromARGB(255, 0, 174, 180), // Background color
+                    foregroundColor: const Color.fromARGB(255, 252, 141, 51), // Text color
                     padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 36.0), // Padding
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0), // Rounded corners
@@ -215,8 +218,8 @@ class HomeScreen extends StatelessWidget {
                     Navigator.of(context).push(createSlideRoute(const StatsScreen()));
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 0, 174, 180), // Background color
-                    foregroundColor: Color.fromARGB(255, 252, 141, 51), // Text color
+                    backgroundColor: const Color.fromARGB(255, 0, 174, 180), // Background color
+                    foregroundColor: const Color.fromARGB(255, 252, 141, 51), // Text color
                     padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 36.0), // Padding
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0), // Rounded corners
